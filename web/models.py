@@ -92,6 +92,13 @@ class Persona(models.Model):
 	oficio = models.ForeignKey(Oficio,related_name="oficio")
 	condicionActividad = models.ForeignKey(CondicionActividad,related_name="condicionActividad")
 
+class Encuesta(models.Model):
+	pregunta = models.CharField(max_length=350)
+	respuestaSi = models.IntegerField()
+	respuestaNo = models.IntegerField()
+	respuestaNoSabe = models.IntegerField()
+	fecha = models.DateField()
+
 
 
 # Create your models here.
