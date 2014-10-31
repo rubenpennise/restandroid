@@ -5,6 +5,7 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
 from web.serializers import *
 from web.models import *
+from rest_framework import status
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -90,7 +91,8 @@ class EncuestaViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             encuesta.pregunta=serializer.data['pregunta']
             encuesta.save()
-            return Response({'status': 'encuesta update'})
+            data={'status': 'encuesta update'}
+            return Response(data,status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
