@@ -67,3 +67,8 @@ class Seccion(models.Model):
         managed = False
         db_table = 'seccion'
 
+## Servicios telefono y cloacas
+## Jefe de hogar
+## cantidad de habitaciones
+## Estado de salud y descripcion
+## Urgencias basicas

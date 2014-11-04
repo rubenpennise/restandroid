@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-
+from padron.models import *
 class Departamento(models.Model):
 	nombre = models.CharField(max_length=75)
 
@@ -129,6 +129,22 @@ class Persona(models.Model):
 	motivosAbandono = models.ForeignKey(MotivosAbandono,related_name="motivosAbandono",null=True, blank=True)
 	oficio = models.ForeignKey(Oficio,related_name="oficio",null=True, blank=True)
 	condicionActividad = models.ForeignKey(CondicionActividad,related_name="condicionActividad",null=True, blank=True)
+	domicilioPadron = models.CharField(max_length=300, null=True, blank=True)
+	analfPadron = models.CharField(max_length=3, null=True, blank=True)
+	seccPadron = models.IntegerField(null=True, blank=True)
+	circuPadron = models.IntegerField(null=True, blank=True)
+	mesaPadron = models.IntegerField(null=True, blank=True)
+	partidoPadron = models.CharField(max_length=100, null=True, blank=True)
+
+	def save(self, *args, **kwargs):
+		persona_padron = Patoca.objects.using('padron').get(dni=self.dni)
+		self.domicilioPadron = persona_padron.domic
+		self.analfPadron = persona_padron.analf    
+		self.seccPadron = persona_padron.secc
+		self.circuPadron = persona_padron.circu
+		self.mesaPadron = persona_padron.mesa
+		self.partidoPadron = persona_padron.partido
+		super(Persona, self).save(*args, **kwargs)
 
 class Encuesta(models.Model):
 	pregunta = models.CharField(max_length=350)
@@ -147,10 +163,37 @@ import django_filters
 class PersonaFilter(django_filters.FilterSet):
     class Meta:
         model = Persona
-        fields = ['apeNombre', 'discapacidad', 'nivelAprobado', 'motivosAbandono', 'oficio', 'condicionActividad']
+        fields = ['apeNombre', 'discapacidad', 'nivelAprobado', 'motivosAbandono', 
+        		'oficio', 'condicionActividad', 'seccPadron', 'circuPadron', 'partidoPadron']
 
 class ViviendaFilter(django_filters.FilterSet):
     class Meta:
         model = Vivienda
         fields = ['barrio', 'calle', 'tipoVivienda', 'tenencia', 'servicio', 'banio', 'departamento', 'municipio', 'localidad']
 
+
+#############################
+"""Clase que no se guarda, se usa solo para mostrar"""
+
+"""
+class PersonaPatoca(models.Model):
+	apeNombre = models.CharField(max_length=100)
+	dni = models.CharField(max_length=30)
+	fechaNac = models.DateField(default=datetime.now)
+	sexo = models.CharField(max_length=10)
+	telefono = models.CharField(max_length=20,null=True, blank=True)
+	correo = models.CharField(max_length=75,null=True, blank=True)
+	vivienda = models.ForeignKey(Vivienda,related_name="vivienda",null=True, blank=True)
+	cobertura = models.ForeignKey(CoberturaSalud,related_name="cobertura",null=True, blank=True)
+	discapacidad = models.ForeignKey(Discapacidad,related_name="discapacidad",null=True, blank=True)
+	nivelAprobado = models.ForeignKey(NivelAprobado,related_name="nivelAprobado",null=True, blank=True)
+	motivosAbandono = models.ForeignKey(MotivosAbandono,related_name="motivosAbandono",null=True, blank=True)
+	oficio = models.ForeignKey(Oficio,related_name="oficio",null=True, blank=True)
+	condicionActividad = models.ForeignKey(CondicionActividad,related_name="condicionActividad",null=True, blank=True)
+	domicilioPadron = models.CharField(max_length=300, null=True, blank=True)
+    analfPadron = models.CharField(max_length=3, null=True, blank=True)
+    seccPadron = models.IntegerField()
+    circuPadron = models.IntegerField()
+    mesaPadron = models.IntegerField()
+    partidoPadron = models.CharField(max_length=100, null=True, blank=True)
+"""

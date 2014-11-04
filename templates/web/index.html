@@ -27,6 +27,7 @@
   <thead>
     <tr>
     <th>Nombre y apellido</th>
+    <th>Dni</th>
     <th>Fecha de nacimiento</th>
     <th>Sexo</th>
     <th>Telefono</th>
@@ -38,6 +39,12 @@
     <th>Motivos de abandono</th>
     <th>Oficio</th>
     <th>Condición actividad</th>
+    <th>Padrón - Domicilio</th>
+    <th>Padrón - Analfabeto</th>
+    <th>Padrón - Sección</th>
+    <th>Padrón - Circuito</th>
+    <th>Padrón - Mesa</th>
+    <th>Padrón - Partido</th>
     
   </tr>
 
@@ -48,6 +55,7 @@
   {% for persona in lista_personas %}
   <tr class="sucess">
       <td>{{persona.apeNombre}}</td>
+      <td>{{persona.dni}}</td>
       <td>{{persona.fechaNac}}</td>
       <td>{{persona.sexo}}</td>
       <td>{{persona.telefono}}</td>
@@ -59,6 +67,15 @@
       <td>{{persona.motivosAbandono.nombre}}</td>
       <td>{{persona.oficio.nombre}}</td>
       <td>{{persona.condicionActividad.nombre}}</td>
+      <td>{{persona.domicilioPadron}}</td>
+      <td>{{persona.analfPadron}}</td>
+      <td>{{persona.seccPadron}}</td>
+      <td>{{persona.circuPadron}}</td>
+      <td>{{persona.mesaPadron}}</td>
+      <td>{{persona.partidoPadron}}</td>
+
+
+
  </tr>
  {% endfor %}
  </tbody>

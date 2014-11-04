@@ -5,13 +5,14 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
 from web.serializers import *
 from web.models import *
-
+from padron.models import *
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from rest_framework import status
-
+from itertools import chain
+from operator import attrgetter
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -118,8 +119,11 @@ def index(request):
             Q(apeNombre__icontains=query)
             )
         f = PersonaFilter(request.GET, queryset=Persona.objects.all().order_by('apeNombre').filter(qset))
+
+
     else:
         f = PersonaFilter(request.GET, queryset=Persona.objects.all())
+
     paginator = Paginator(f, 20)
     
     try:
@@ -134,6 +138,44 @@ def index(request):
     return render_to_response('web/index.html', {'filter': f,
                                                 'lista_personas': lista_personas,
                                                 }, context_instance=RequestContext(request))
+
+
+"""
+    lista_personas_unida = []
+    for persona in f:
+
+            persona_padron = Patoca.objects.using('padron').all().filter(dni=persona.dni)
+            persona_unida = PersonaPatoca()
+            persona_unida.apeNombre = persona.apeNombre
+            persona_unida.dni = persona.dni
+            persona_unida.fechaNac = persona.fechaNac
+            persona_unida.sexo = persona.sexo
+            persona_unida.telefono = persona.telefono
+            persona_unida.correo = persona.correo
+            persona_unida.vivienda = persona.vivienda
+            persona_unida.cobertura = persona.cobertura
+            persona_unida.discapacidad = persona.discapacidad
+            persona_unida.nivelAprobado = persona.nivelAprobado
+            persona_unida.motivosAbandono = persona.motivosAbandono
+            persona_unida.oficio = persona.oficio
+            persona_unida.condicionActividad = persona.condicionActividad
+            persona_unida.domicilioPadron = persona_padron.domic
+            persona_unida.analfPadron = persona_padron.analf
+            persona_unida.seccPadron = persona_padron.secc
+            persona_unida.circuPadron = persona_padron.circu
+            persona_unida.mesaPadron = persona_padron.mesa
+            persona_unida.partidoPadron = persona_padron.partido
+
+
+            lista_personas_unida.append(persona_unida)
+
+       for per in persona_padron:
+                print per.apenom
+            registro_final = chain(persona, persona_padron)
+            for r in registro_final:
+                print r """
+
+
 
 def lista_viviendas(request):
 
@@ -165,3 +207,5 @@ def vivienda_integrantes(request, vivienda_id):
     return render_to_response('web/vivienda_integrantes.html', {'lista_personas': lista_personas,
                                                 'vivienda': vivienda,
                                                 }, context_instance=RequestContext(request))
+
+
