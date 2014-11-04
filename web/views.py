@@ -3,6 +3,10 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from web.serializers import *
 from web.models import *
+from django.views.generic import TemplateView
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.template import RequestContext
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -77,3 +81,64 @@ class PersonaViewSet(viewsets.ModelViewSet):
     serializer_class = PersonaSerializer
 
 # Create your views here.
+
+######## Funciones #######
+
+
+
+def index(request):
+
+    query = request.GET.get('q', '')
+    
+    if query:
+        qset = (
+            Q(apeNombre__icontains=query)
+            )
+        f = PersonaFilter(request.GET, queryset=Persona.objects.all().order_by('apeNombre').filter(qset))
+    else:
+        f = PersonaFilter(request.GET, queryset=Persona.objects.all())
+    paginator = Paginator(f, 20)
+    
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        lista_personas = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        lista_personas = paginator.page(paginator.num_pages)
+    return render_to_response('web/index.html', {'filter': f,
+                                                'lista_personas': lista_personas,
+                                                }, context_instance=RequestContext(request))
+
+def lista_viviendas(request):
+
+
+    query = request.GET.get('q', '')
+    
+    if query:
+        f = ViviendaFilter(request.GET, queryset=Vivienda.objects.all().filter(query))
+    else:
+        f = ViviendaFilter(request.GET, queryset=Vivienda.objects.all())
+    paginator = Paginator(f, 20)
+    
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        lista_viviendas = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        lista_viviendas = paginator.page(paginator.num_pages)
+    return render_to_response('web/viviendas.html', {'filter': f,
+                                                'lista_viviendas': lista_viviendas,
+                                                }, context_instance=RequestContext(request))
+
+def vivienda_integrantes(request, vivienda_id):
+    vivienda = Vivienda.objects.get(id=vivienda_id)
+    lista_personas = Persona.objects.all().filter(vivienda=vivienda)
+    return render_to_response('web/vivienda_integrantes.html', {'lista_personas': lista_personas,
+                                                'vivienda': vivienda,
+                                                }, context_instance=RequestContext(request))
