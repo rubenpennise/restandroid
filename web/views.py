@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
+from rest_framework.decorators import detail_route, list_route
+from rest_framework.response import Response
 from web.serializers import *
 from web.models import *
+
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
+from rest_framework import status
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -79,6 +84,24 @@ class CondicionActividadViewSet(viewsets.ModelViewSet):
 class PersonaViewSet(viewsets.ModelViewSet):
     queryset = Persona.objects.all()
     serializer_class = PersonaSerializer
+
+class EncuestaViewSet(viewsets.ModelViewSet):
+    queryset = Encuesta.objects.all()
+    serializer_class = EncuestaSerializer
+
+    @detail_route(methods=['post'])
+    def set_password(self, request, pk=None):
+        encuesta = self.get_object()
+        print encuesta.pregunta
+        serializer = EncuestaSerializer(data=request.DATA)
+        if serializer.is_valid():
+            encuesta.pregunta=serializer.data['pregunta']
+            encuesta.save()
+            data={'status': 'encuesta update'}
+            return Response(data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
 
 # Create your views here.
 

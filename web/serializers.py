@@ -104,4 +104,9 @@ class PersonaSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Persona
 		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','vivienda','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','condicionActividad')
+
+class EncuestaSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Encuesta
+		fields = ('id','pregunta','respuestaSi','respuestaSi','respuestaNo','respuestaNoSabe','fecha')
 		
