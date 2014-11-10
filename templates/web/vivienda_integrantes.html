@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}{% endblock %}
+
+{% block content %} 
+<div class="col-md-12">
+
+<h1>Datos de la vivienda seleccionada</h1>
+</div>
+
+ <div class="col-md-12">
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>Barrio</th>
+    <th>Calle</th>
+    <th>Número</th>
+    <th>Piso</th>
+    <th>Dpto</th>
+    <th>Tipo de vivienda</th>
+    <th>Tenencia</th>
+    <th>Servicio</th>
+    <th>Baño</th>
+    <th>Departamento</th>
+    <th>Municipio</th>
+    <th>Localidad</th>
+    
+  </tr>
+  
+  </thead>
+  <tbody>
+  
+  <tr class="sucess">
+      <td>{{vivienda.barrio}}</td>
+      <td>{{vivienda.calle}}</td>
+      <td>{{vivienda.numero}}</td>
+      <td>{{vivienda.piso}}</td>
+      <td>{{vivienda.dpto}}</td>
+      <td>{{vivienda.tipoVivienda}}</td>
+      <td>{{vivienda.tenencia}}</td>
+      <td>{{vivienda.servicio}}</td>
+      <td>{{vivienda.banio}}</td>
+      <td>{{vivienda.departamento}}</td>
+      <td>{{vivienda.municipio}}</td>
+      <td>{{vivienda.localidad}}</td>
+
+ </tr>
+
+ </tbody>
+</table>
+
+<h1>Integrantes</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>Nombre y apellido</th>
+    <th>Fecha de nacimiento</th>
+    <th>Sexo</th>
+    <th>Telefono</th>
+    <th>Correo</th>
+    <th>Vivienda</th>
+    <th>Cobertura</th>
+    <th>Discapacidad</th>
+    <th>Máximo nivel aprobado</th>
+    <th>Motivos de abandono</th>
+    <th>Oficio</th>
+    <th>Condición actividad</th>
+    
+  </tr>
+
+
+  
+  </thead>
+  <tbody>
+  {% for persona in lista_personas %}
+  <tr class="sucess">
+      <td>{{persona.apeNombre}}</td>
+      <td>{{persona.fechaNac}}</td>
+      <td>{{persona.sexo}}</td>
+      <td>{{persona.telefono}}</td>
+      <td>{{persona.correo}}</td>
+      <td>{{persona.vivienda.localidad}}</td>
+      <td>{{persona.cobertura.nombre}}</td>
+      <td>{{persona.discapacidad.nombre}}</td>
+      <td>{{persona.nivelAprobado.nombre}}</td>
+      <td>{{persona.motivosAbandono.nombre}}</td>
+      <td>{{persona.oficio.nombre}}</td>
+      <td>{{persona.condicionActividad.nombre}}</td>
+ </tr>
+ {% endfor %}
+ </tbody>
+</table>
+</div>
+ {% endblock %}}
+ 

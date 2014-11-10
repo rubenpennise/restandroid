@@ -33,4 +33,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^index/', 'web.views.index'),
+    url(r'^lista_viviendas/', 'web.views.lista_viviendas'),
+    url(r'^vivienda_integrantes/(\d+)/$', 'web.views.vivienda_integrantes'),
 )
