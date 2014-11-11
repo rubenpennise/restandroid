@@ -40,6 +40,9 @@
     <th>Motivos de abandono</th>
     <th>Oficio</th>
     <th>Condición actividad</th>
+    <th>Jefe de hogar</th>
+    <th>Estado de salud</th>
+    <th>Información adicional</th>
     <th class="fondo-gris">Padrón - Domicilio</th>
     <th class="fondo-gris">Padrón - Analfabeto</th>
     <th class="fondo-gris">Padrón - Sección</th>
@@ -68,6 +71,9 @@
       <td>{{persona.motivosAbandono.nombre}}</td>
       <td>{{persona.oficio.nombre}}</td>
       <td>{{persona.condicionActividad.nombre}}</td>
+      <td>{{persona.jefeDeHogar}}</td>
+      <td>{{persona.estadoSalud.nombre}}</td>
+      <td>{{persona.infoAdicional}}</td>
       <td>{{persona.domicilioPadron}}</td>
       <td>{{persona.analfPadron}}</td>
       <td>{{persona.seccPadron}}</td>
@@ -99,6 +105,7 @@
 
     </div>
     </div>
+
 </div>
  {% endblock %}}
  

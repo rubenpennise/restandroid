@@ -126,6 +126,11 @@ class CondicionActividad(models.Model):
 	def __unicode__(self):
 		return self.nombre
 
+
+class EstadoSalud(models.Model):
+	nombre = models.CharField(max_length="300")
+	descripcion = models.CharField(max_length="2000")
+
 class Persona(models.Model):
 	apeNombre = models.CharField("Nombre y apellido", max_length=100)
 	dni = models.CharField(max_length=30)
@@ -148,6 +153,8 @@ class Persona(models.Model):
 	partidoPadron = models.CharField("Partido", max_length=100, null=True, blank=True)
 
 	jefeDeHogar = models.BooleanField(default=False)
+	estadoSalud = models.ForeignKey(EstadoSalud, related_name="EstadoSalud",null=True, blank=True,verbose_name=u"Estado de salud")
+	infoAdicional = models.CharField("Información adicional", blank=True, null=True, max_length=2000)
 
 	def save(self, *args, **kwargs):
 		persona_padron = Patoca.objects.using('padron').get(dni=self.dni)
@@ -165,7 +172,6 @@ class Encuesta(models.Model):
 	respuestaNo = models.IntegerField()
 	respuestaNoSabe = models.IntegerField()
 	fecha = models.DateField()
-
 
 
 # Create your models here.
