@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.db import models
 from datetime import datetime
 from padron.models import *
@@ -38,7 +39,8 @@ class Servicio(models.Model):
 	agua = models.BooleanField(default=False)
 	luz = models.BooleanField(default=False)
 	gas = models.BooleanField(default=False)
-
+	telefono = models.BooleanField(default=False)
+	cloacas = models.BooleanField(default=False)
 	def __unicode__(self):
 		respuesta = ""
 		if self.agua:
@@ -47,7 +49,12 @@ class Servicio(models.Model):
 			respuesta += "Luz: Si "
 		if self.gas:
 			respuesta += "Gas: Si "
+		if self.telefono:
+			respuesta += "Teléfono: Si "
+		if self.cloacas:
+			respuesta += "Cloacas: Si "
 		return respuesta
+
 class Banio(models.Model):
 	si = models.BooleanField(default=False)
 	no = models.BooleanField(default=False)
@@ -59,18 +66,22 @@ class Banio(models.Model):
 			return "No"
 
 class Vivienda(models.Model):
-	barrio = models.CharField(max_length=100)
-	calle = models.CharField(max_length=100)
+	barrio = models.CharField(max_length=1000)
+	calle = models.CharField(max_length=1000)
 	numero = models.CharField(max_length=20)
 	piso = models.CharField(max_length=20,blank=True)
 	dpto = models.CharField(max_length=10,blank=True)
-	tipoVivienda = models.ForeignKey(TipoVivienda,related_name='tipoVivienda')
+	tipoVivienda = models.ForeignKey(TipoVivienda,related_name='tipoVivienda', verbose_name="Tipo de vivienda")
 	tenencia = models.ForeignKey(Tenencia,related_name="tenencia")
 	servicio = models.ForeignKey(Servicio,related_name="servicio")
-	banio = models.ForeignKey(Banio,related_name="banio")
+	banio = models.ForeignKey(Banio,related_name="banio", verbose_name="Baño")
 	departamento = models.ForeignKey(Departamento,related_name="departamento")
 	municipio = models.ForeignKey(Municipio,related_name="municipio")
 	localidad = models.ForeignKey(Localidad,related_name="localidad")
+
+	cantidadHabitaciones = models.IntegerField("Cantidad de habitaciones",null=True,blank=True)
+	urgenciasBasicas = models.CharField("Urgencias básicas", max_length=20000,null=True, blank=True)
+
 
 	def __unicode__(self):
 		return self.calle
@@ -116,25 +127,27 @@ class CondicionActividad(models.Model):
 		return self.nombre
 
 class Persona(models.Model):
-	apeNombre = models.CharField(max_length=100)
+	apeNombre = models.CharField("Nombre y apellido", max_length=100)
 	dni = models.CharField(max_length=30)
 	fechaNac = models.DateField(default=datetime.now)
 	sexo = models.CharField(max_length=10)
 	telefono = models.CharField(max_length=20,null=True, blank=True)
 	correo = models.CharField(max_length=75,null=True, blank=True)
 	vivienda = models.ForeignKey(Vivienda,related_name="vivienda",null=True, blank=True)
-	cobertura = models.ForeignKey(CoberturaSalud,related_name="cobertura",null=True, blank=True)
+	cobertura = models.ForeignKey(CoberturaSalud,related_name="cobertura",null=True, blank=True, verbose_name="Cobertura de salud")
 	discapacidad = models.ForeignKey(Discapacidad,related_name="discapacidad",null=True, blank=True)
-	nivelAprobado = models.ForeignKey(NivelAprobado,related_name="nivelAprobado",null=True, blank=True)
-	motivosAbandono = models.ForeignKey(MotivosAbandono,related_name="motivosAbandono",null=True, blank=True)
+	nivelAprobado = models.ForeignKey(NivelAprobado,related_name="nivelAprobado",null=True, blank=True,verbose_name="Nivel aprobado")
+	motivosAbandono = models.ForeignKey(MotivosAbandono,related_name="motivosAbandono",null=True, blank=True,verbose_name="Motivos de abandono")
 	oficio = models.ForeignKey(Oficio,related_name="oficio",null=True, blank=True)
-	condicionActividad = models.ForeignKey(CondicionActividad,related_name="condicionActividad",null=True, blank=True)
+	condicionActividad = models.ForeignKey(CondicionActividad,related_name="condicionActividad",null=True, blank=True,verbose_name=u"Condición de actividad")
 	domicilioPadron = models.CharField(max_length=300, null=True, blank=True)
 	analfPadron = models.CharField(max_length=3, null=True, blank=True)
-	seccPadron = models.IntegerField(null=True, blank=True)
-	circuPadron = models.IntegerField(null=True, blank=True)
-	mesaPadron = models.IntegerField(null=True, blank=True)
-	partidoPadron = models.CharField(max_length=100, null=True, blank=True)
+	seccPadron = models.IntegerField("Sección", null=True, blank=True)
+	circuPadron = models.IntegerField("Circuito", null=True, blank=True)
+	mesaPadron = models.IntegerField("Mesa", null=True, blank=True)
+	partidoPadron = models.CharField("Partido", max_length=100, null=True, blank=True)
+
+	jefeDeHogar = models.BooleanField(default=False)
 
 	def save(self, *args, **kwargs):
 		persona_padron = Patoca.objects.using('padron').get(dni=self.dni)

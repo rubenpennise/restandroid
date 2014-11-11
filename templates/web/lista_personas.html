@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}{% endblock %}
+
+{% block content %} 
+<div class="col-md-12">
+
+<h1>Listado de personas</h1>
+</div>
+<div class="row">
+<div class="col-md-2">
+    <h3>Filtros de búsqueda</h3>
+    <form action="" method="get">
+        {% bootstrap_form filter.form %}
+
+        <input type="submit" />
+    </form>
+    </div>
+ <div class="col-md-10">
+ <div class="table-responsive">
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+    <th>Nombre y apellido</th>
+    <th>Dni</th>
+    <th>Fecha de nacimiento</th>
+    <th>Sexo</th>
+    <th>Telefono</th>
+    <th>Correo</th>
+    <th>Vivienda</th>
+    <th>Cobertura</th>
+    <th>Discapacidad</th>
+    <th>Máximo nivel aprobado</th>
+    <th>Motivos de abandono</th>
+    <th>Oficio</th>
+    <th>Condición actividad</th>
+    <th class="fondo-gris">Padrón - Domicilio</th>
+    <th class="fondo-gris">Padrón - Analfabeto</th>
+    <th class="fondo-gris">Padrón - Sección</th>
+    <th class="fondo-gris">Padrón - Circuito</th>
+    <th class="fondo-gris">Padrón - Mesa</th>
+    <th class="fondo-gris">Padrón - Partido</th>
+    
+  </tr>
+
+
+  
+  </thead>
+  <tbody>
+  {% for persona in lista_personas %}
+  <tr class="sucess">
+      <td>{{persona.apeNombre}}</td>
+      <td>{{persona.dni}}</td>
+      <td>{{persona.fechaNac}}</td>
+      <td>{{persona.sexo}}</td>
+      <td>{{persona.telefono}}</td>
+      <td>{{persona.correo}}</td>
+      <td>{{persona.vivienda.localidad}}</td>
+      <td>{{persona.cobertura.nombre}}</td>
+      <td>{{persona.discapacidad.nombre}}</td>
+      <td>{{persona.nivelAprobado.nombre}}</td>
+      <td>{{persona.motivosAbandono.nombre}}</td>
+      <td>{{persona.oficio.nombre}}</td>
+      <td>{{persona.condicionActividad.nombre}}</td>
+      <td>{{persona.domicilioPadron}}</td>
+      <td>{{persona.analfPadron}}</td>
+      <td>{{persona.seccPadron}}</td>
+      <td>{{persona.circuPadron}}</td>
+      <td>{{persona.mesaPadron}}</td>
+      <td>{{persona.partidoPadron}}</td>
+
+
+
+ </tr>
+ {% endfor %}
+ </tbody>
+</table>
+
+ <div class="pagination">
+    <span class="step-links">
+        {% if lista_personas.has_previous %}
+            <a href="?page={{ lista_personas.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Pagina {{ lista_personas.number }} de {{ lista_personas.paginator.num_pages }}.
+        </span>
+
+        {% if lista_personas.has_next %}
+            <a href="?page={{ lista_personas.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+
+    </div>
+    </div>
+</div>
+ {% endblock %}}
+ 
