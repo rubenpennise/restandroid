@@ -114,10 +114,10 @@ def index(request):
                                                 }, context_instance=RequestContext(request))
 def lista_personas(request):
 
-    query = request.GET.gecryptography, there are no proposals on improving the cryptography of Hidden Services yet.
+    query = request.GET.get('q', '')
 
 
-t('q', '')
+
     
     if query:
         qset = (
