@@ -27,7 +27,7 @@ class TenenciaSerializer(serializers.ModelSerializer):
 class ServicioSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Servicio
-		fields = ('luz','agua','gas')
+		fields = ('luz','agua','gas','telefono','cloacas')
 
 class DepartamentoSerializer(serializers.ModelSerializer):
 	class Meta:
