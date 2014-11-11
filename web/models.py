@@ -153,7 +153,7 @@ class Persona(models.Model):
 	partidoPadron = models.CharField("Partido", max_length=100, null=True, blank=True)
 
 	jefeDeHogar = models.BooleanField(default=False)
-	estadoSalud = models.ForeignKey(EstadoSalud, related_name="EstadoSalud",null=True, blank=True,verbose_name=u"Estado de salud")
+	estadoSalud = models.ForeignKey(EstadoSalud, related_name="estadoSalud",null=True, blank=True,verbose_name=u"estado de salud")
 	infoAdicional = models.CharField("Información adicional", blank=True, null=True, max_length=2000)
 
 	def save(self, *args, **kwargs):
