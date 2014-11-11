@@ -39,7 +39,8 @@ class Servicio(models.Model):
 	agua = models.BooleanField(default=False)
 	luz = models.BooleanField(default=False)
 	gas = models.BooleanField(default=False)
-
+	telefono = models.BooleanField(default=False)
+	cloacas = models.BooleanField(default=False)
 	def __unicode__(self):
 		respuesta = ""
 		if self.agua:
@@ -48,7 +49,12 @@ class Servicio(models.Model):
 			respuesta += "Luz: Si "
 		if self.gas:
 			respuesta += "Gas: Si "
+		if self.telefono:
+			respuesta += "Teléfono: Si "
+		if self.cloacas:
+			respuesta += "Cloacas: Si "
 		return respuesta
+
 class Banio(models.Model):
 	si = models.BooleanField(default=False)
 	no = models.BooleanField(default=False)
@@ -60,8 +66,8 @@ class Banio(models.Model):
 			return "No"
 
 class Vivienda(models.Model):
-	barrio = models.CharField(max_length=100)
-	calle = models.CharField(max_length=100)
+	barrio = models.CharField(max_length=1000)
+	calle = models.CharField(max_length=1000)
 	numero = models.CharField(max_length=20)
 	piso = models.CharField(max_length=20,blank=True)
 	dpto = models.CharField(max_length=10,blank=True)
@@ -72,6 +78,10 @@ class Vivienda(models.Model):
 	departamento = models.ForeignKey(Departamento,related_name="departamento")
 	municipio = models.ForeignKey(Municipio,related_name="municipio")
 	localidad = models.ForeignKey(Localidad,related_name="localidad")
+
+	cantidadHabitaciones = models.IntegerField("Cantidad de habitaciones",null=True,blank=True)
+	urgenciasBasicas = models.CharField("Urgencias básicas", max_length=20000,null=True, blank=True)
+
 
 	def __unicode__(self):
 		return self.calle
@@ -136,6 +146,8 @@ class Persona(models.Model):
 	circuPadron = models.IntegerField("Circuito", null=True, blank=True)
 	mesaPadron = models.IntegerField("Mesa", null=True, blank=True)
 	partidoPadron = models.CharField("Partido", max_length=100, null=True, blank=True)
+
+	jefeDeHogar = models.BooleanField(default=False)
 
 	def save(self, *args, **kwargs):
 		persona_padron = Patoca.objects.using('padron').get(dni=self.dni)

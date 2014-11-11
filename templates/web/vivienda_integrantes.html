@@ -27,10 +27,13 @@
     <th>Tenencia</th>
     <th>Servicio</th>
     <th>Baño</th>
+    <th>Cantidad de habitaciones</th>
+    <th>Urgencias básicas</th>
     <th>Departamento</th>
     <th>Municipio</th>
     <th>Localidad</th>
-    
+
+
   </tr>
   
   </thead>
@@ -46,6 +49,8 @@
       <td>{{vivienda.tenencia}}</td>
       <td>{{vivienda.servicio}}</td>
       <td>{{vivienda.banio}}</td>
+      <td>{{vivienda.cantidadHabitaciones}}</td>
+      <td>{{vivienda.urgenciasBasicas}}</td>
       <td>{{vivienda.departamento}}</td>
       <td>{{vivienda.municipio}}</td>
       <td>{{vivienda.localidad}}</td>
@@ -72,6 +77,7 @@
     <th>Motivos de abandono</th>
     <th>Oficio</th>
     <th>Condición actividad</th>
+    <th>Jefe de hogar</th>
     
   </tr>
 
@@ -93,6 +99,7 @@
       <td>{{persona.motivosAbandono.nombre}}</td>
       <td>{{persona.oficio.nombre}}</td>
       <td>{{persona.condicionActividad.nombre}}</td>
+      <td>{{persona.jefeDeHogar}}</td>
  </tr>
  {% endfor %}
  </tbody>
