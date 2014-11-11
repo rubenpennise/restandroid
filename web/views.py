@@ -109,10 +109,15 @@ class EncuestaViewSet(viewsets.ModelViewSet):
 ######## Funciones #######
 
 
-
 def index(request):
+    return render_to_response('web/index.html', {
+                                                }, context_instance=RequestContext(request))
+def lista_personas(request):
 
-    query = request.GET.get('q', '')
+    query = request.GET.gecryptography, there are no proposals on improving the cryptography of Hidden Services yet.
+
+
+t('q', '')
     
     if query:
         qset = (
@@ -135,7 +140,7 @@ def index(request):
         lista_personas = paginator.page(page)
     except (EmptyPage, InvalidPage):
         lista_personas = paginator.page(paginator.num_pages)
-    return render_to_response('web/index.html', {'filter': f,
+    return render_to_response('web/lista_personas.html', {'filter': f,
                                                 'lista_personas': lista_personas,
                                                 }, context_instance=RequestContext(request))
 
@@ -197,7 +202,7 @@ def lista_viviendas(request):
         lista_viviendas = paginator.page(page)
     except (EmptyPage, InvalidPage):
         lista_viviendas = paginator.page(paginator.num_pages)
-    return render_to_response('web/viviendas.html', {'filter': f,
+    return render_to_response('web/lista_viviendas.html', {'filter': f,
                                                 'lista_viviendas': lista_viviendas,
                                                 }, context_instance=RequestContext(request))
 

@@ -9,94 +9,20 @@
 {% block title %}{% endblock %}
 
 {% block content %} 
-<div class="col-md-12">
-<a href="{% url 'web.views.lista_viviendas' %}">Lista de viviendas</a>
-<h1>Lista de personas cargadas por celular</h1>
+
+<div class="align-center">
+<h1>Panel de control</h1>
+<a class="tile-btn" href="{% url 'web.views.lista_personas' %}">
+<span class="glyphicon glyphicon-user dibujo"></span>
+<span class="texto-span">Listado de personas</span>
+</a>
+
+<a class="tile-btn" href="{% url 'web.views.lista_viviendas' %}">
+<span class="glyphicon glyphicon-home dibujo"></span>
+<span class="texto-span">Listado de viviendas</span>
+</a>
 </div>
-<div class="row">
-<div class="col-md-2">
-    <h3>Filtros de búsqueda</h3>
-    <form action="" method="get">
-        {% bootstrap_form filter.form %}
-
-        <input type="submit" />
-    </form>
-    </div>
- <div class="col-md-10">
-<table class="table table-striped">
-  <thead>
-    <tr>
-    <th>Nombre y apellido</th>
-    <th>Dni</th>
-    <th>Fecha de nacimiento</th>
-    <th>Sexo</th>
-    <th>Telefono</th>
-    <th>Correo</th>
-    <th>Vivienda</th>
-    <th>Cobertura</th>
-    <th>Discapacidad</th>
-    <th>Máximo nivel aprobado</th>
-    <th>Motivos de abandono</th>
-    <th>Oficio</th>
-    <th>Condición actividad</th>
-    <th>Padrón - Domicilio</th>
-    <th>Padrón - Analfabeto</th>
-    <th>Padrón - Sección</th>
-    <th>Padrón - Circuito</th>
-    <th>Padrón - Mesa</th>
-    <th>Padrón - Partido</th>
-    
-  </tr>
-
-
-  
-  </thead>
-  <tbody>
-  {% for persona in lista_personas %}
-  <tr class="sucess">
-      <td>{{persona.apeNombre}}</td>
-      <td>{{persona.dni}}</td>
-      <td>{{persona.fechaNac}}</td>
-      <td>{{persona.sexo}}</td>
-      <td>{{persona.telefono}}</td>
-      <td>{{persona.correo}}</td>
-      <td>{{persona.vivienda.localidad}}</td>
-      <td>{{persona.cobertura.nombre}}</td>
-      <td>{{persona.discapacidad.nombre}}</td>
-      <td>{{persona.nivelAprobado.nombre}}</td>
-      <td>{{persona.motivosAbandono.nombre}}</td>
-      <td>{{persona.oficio.nombre}}</td>
-      <td>{{persona.condicionActividad.nombre}}</td>
-      <td>{{persona.domicilioPadron}}</td>
-      <td>{{persona.analfPadron}}</td>
-      <td>{{persona.seccPadron}}</td>
-      <td>{{persona.circuPadron}}</td>
-      <td>{{persona.mesaPadron}}</td>
-      <td>{{persona.partidoPadron}}</td>
 
 
 
- </tr>
- {% endfor %}
- </tbody>
-</table>
-
- <div class="pagination">
-    <span class="step-links">
-        {% if lista_personas.has_previous %}
-            <a href="?page={{ lista_personas.previous_page_number }}">Anterior</a>
-        {% endif %}
-
-        <span class="current">
-            Pagina {{ lista_personas.number }} de {{ lista_personas.paginator.num_pages }}.
-        </span>
-
-        {% if lista_personas.has_next %}
-            <a href="?page={{ lista_personas.next_page_number }}">Siguiente</a>
-        {% endif %}
-    </span>
-
-    </div>
-</div>
- {% endblock %}}
- 
+{% endblock %}
