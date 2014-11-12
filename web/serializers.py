@@ -109,5 +109,16 @@ class PersonaSerializer(serializers.ModelSerializer):
 class EncuestaSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Encuesta
-		fields = ('id','pregunta','respuestaSi','respuestaSi','respuestaNo','respuestaNoSabe','fecha')
+		fields = ('id','pregunta','respuestaSi','respuestaSi','respuestaNo','respuestaNoSabe','fecha','codigo')
+
+class PreguntaSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Pregunta
+		fields = ('pregunta','fecha')
+
+class RespuestaSerializer(serializers.ModelSerializer):
+	pregunta = serializers.PrimaryKeyRelatedField(many=False)
+	class Meta:
+		model = Respuesta
+		fields = ('respuesta','resultado','pregunta','codigo')
 		

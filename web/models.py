@@ -172,6 +172,18 @@ class Encuesta(models.Model):
 	respuestaNo = models.IntegerField()
 	respuestaNoSabe = models.IntegerField()
 	fecha = models.DateField()
+	codigo = models.IntegerField(blank=True)
+
+class Pregunta(models.Model):
+	pregunta = models.CharField("interrogacion",max_length=400)
+	fecha = models.DateField()
+	codigo = models.IntegerField(blank=True)
+
+class Respuesta(models.Model):
+	respuesta = models.CharField(max_length=400)
+	resultado = models.IntegerField()
+	codigo = models.IntegerField(blank=True)
+	preguntaAsociada = models.ForeignKey(Pregunta,related_name="preguntaAsociada")
 
 
 # Create your models here.

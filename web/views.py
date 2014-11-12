@@ -92,13 +92,40 @@ class EncuestaViewSet(viewsets.ModelViewSet):
 
     @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
-        encuesta = self.get_object()
+        encuesta = Encuesta.objects.get(codigo=pk)
         print encuesta.pregunta
+        print pk
         serializer = EncuestaSerializer(data=request.DATA)
         if serializer.is_valid():
             encuesta.pregunta=serializer.data['pregunta']
+            encuesta.respuestaSi= serializer.data['respuestaSi']
+            encuesta.respuestaNo= serializer.data['respuestaNo']
+            encuesta.respuestaNoSabe= serializer.data['respuestaNoSabe']
             encuesta.save()
             data={'status': 'encuesta update'}
+            return Response(data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+class PreguntaViewSet(viewsets.ModelViewSet):
+    queryset = Pregunta.objects.all()
+    serializer_class = PreguntaSerializer
+
+class RespuestaViewSet(viewsets.ModelViewSet):
+    queryset = Respuesta.objects.all()
+    serializer_class = RespuestaSerializer
+
+    @detail_route(methods=['post'])
+    def set_cantidad(self, request, pk=None):
+        respuesta = Respuesta.objects.get(codigo=pk)
+        #print respuesta.pregunta
+        serializer = RespuestaSerializer(data=request.DATA)
+        if serializer.is_valid():
+            #respuesta.respuesta=serializer.data['respuesta']
+            respuesta.resultado=serializer.data['resultado']
+            respuesta.save()
+            data={'status': 'respuesta update'}
             return Response(data,status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors,
