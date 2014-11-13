@@ -114,11 +114,11 @@ class EncuestaSerializer(serializers.ModelSerializer):
 class PreguntaSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Pregunta
-		fields = ('pregunta','fecha')
+		fields = ('pregunta','fecha','codigo')
 
 class RespuestaSerializer(serializers.ModelSerializer):
-	pregunta = serializers.PrimaryKeyRelatedField(many=False)
+	preguntaAsociada = serializers.PrimaryKeyRelatedField(many=False)
 	class Meta:
 		model = Respuesta
-		fields = ('respuesta','resultado','pregunta','codigo')
+		fields = ('respuesta','resultado','preguntaAsociada','codigo')
 		
