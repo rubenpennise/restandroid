@@ -93,6 +93,11 @@ class CondicionActividadSerializer(serializers.ModelSerializer):
 		model = CondicionActividad
 		fields =('nombre',)
 
+class EstadoSaludSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = EstadoSalud
+		fields = ('nombre','descripcion')
+
 class PersonaSerializer(serializers.ModelSerializer):
 	vivienda = serializers.PrimaryKeyRelatedField(many=False)
 	cobertura = serializers.PrimaryKeyRelatedField(many=False)
@@ -101,10 +106,10 @@ class PersonaSerializer(serializers.ModelSerializer):
 	motivosAbandono = serializers.PrimaryKeyRelatedField(many=False)
 	oficio = serializers.PrimaryKeyRelatedField(many=False)
 	condicionActividad = serializers.PrimaryKeyRelatedField(many=False)
-	estadoSalud = serializers.PrimaryKeyRelatedField(many=False)
+	estadoSalud = EstadoSaludSerializer(many=False)
 	class Meta:
 		model = Persona
-		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','vivienda','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','infoAdicional','condicionActividad')
+		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','vivienda','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','condicionActividad')
 
 class EncuestaSerializer(serializers.ModelSerializer):
 	class Meta:

@@ -90,6 +90,10 @@ class EncuestaViewSet(viewsets.ModelViewSet):
     queryset = Encuesta.objects.all()
     serializer_class = EncuestaSerializer
 
+class EstadoSaludViewSet(viewsets.ModelViewSet):
+    queryset = EstadoSalud.objects.all()
+    serializer_class = EstadoSaludSerializer
+
     @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
         encuesta = Encuesta.objects.get(codigo=pk)
