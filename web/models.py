@@ -2,6 +2,7 @@
 from django.db import models
 from datetime import datetime
 from padron.models import *
+import hashlib 
 class Departamento(models.Model):
 	nombre = models.CharField(max_length=75)
 
@@ -173,6 +174,7 @@ class Encuesta(models.Model):
 	respuestaNoSabe = models.IntegerField()
 	fecha = models.DateField()
 	codigo = models.IntegerField(blank=True)
+
 
 class Pregunta(models.Model):
 	pregunta = models.CharField(max_length=400)

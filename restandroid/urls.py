@@ -21,6 +21,9 @@ router.register(r'oficios', views.OficioViewSet)
 router.register(r'condicionactividad', views.CondicionActividadViewSet)
 router.register(r'personas', views.PersonaViewSet)
 router.register(r'encuestas', views.EncuestaViewSet)
+router.register(r'preguntas', views.PreguntaViewSet)
+router.register(r'respuestas', views.RespuestaViewSet)
+router.register(r'estadosalud', views.EstadoSaludViewSet)
 
 from django.contrib import admin
 admin.autodiscover()

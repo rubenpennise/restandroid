@@ -102,9 +102,9 @@ class EstadoSaludViewSet(viewsets.ModelViewSet):
         serializer = EncuestaSerializer(data=request.DATA)
         if serializer.is_valid():
             encuesta.pregunta=serializer.data['pregunta']
-            encuesta.respuestaSi= serializer.data['respuestaSi']
-            encuesta.respuestaNo= serializer.data['respuestaNo']
-            encuesta.respuestaNoSabe= serializer.data['respuestaNoSabe']
+            encuesta.respuestaSi += serializer.data['respuestaSi']
+            encuesta.respuestaNo += serializer.data['respuestaNo']
+            encuesta.respuestaNoSabe += serializer.data['respuestaNoSabe']
             encuesta.save()
             data={'status': 'encuesta update'}
             return Response(data,status=status.HTTP_201_CREATED)
@@ -115,6 +115,12 @@ class EstadoSaludViewSet(viewsets.ModelViewSet):
 class PreguntaViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
     serializer_class = PreguntaSerializer
+
+    @detail_route(methods=['get'])
+    def get_asociada(self, request, pk=None):
+        pregunta = Pregunta.objects.get(pk=pk)
+        serializer = PreguntaSerializer(pregunta)
+        return Response(serializer.data)
 
 class RespuestaViewSet(viewsets.ModelViewSet):
     queryset = Respuesta.objects.all()
@@ -134,6 +140,7 @@ class RespuestaViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
+
 
 # Create your views here.
 
