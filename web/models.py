@@ -158,14 +158,17 @@ class Persona(models.Model):
 	infoAdicional = models.CharField("Información adicional", blank=True, null=True, max_length=2000)
 
 	def save(self, *args, **kwargs):
-		persona_padron = Patoca.objects.using('padron').get(dni=self.dni)
-		self.domicilioPadron = persona_padron.domic
-		self.analfPadron = persona_padron.analf    
-		self.seccPadron = persona_padron.secc
-		self.circuPadron = persona_padron.circu
-		self.mesaPadron = persona_padron.mesa
-		self.partidoPadron = persona_padron.partido
-		super(Persona, self).save(*args, **kwargs)
+		try:
+			persona_padron = Patoca.objects.using('padron').get(dni=self.dni)
+			self.domicilioPadron = persona_padron.domic
+			self.analfPadron = persona_padron.analf    
+			self.seccPadron = persona_padron.secc
+			self.circuPadron = persona_padron.circu
+			self.mesaPadron = persona_padron.mesa
+			self.partidoPadron = persona_padron.partido
+			super(Persona, self).save(*args, **kwargs)
+		except	Patoca.DoesNotExist:
+			super(Persona, self).save(*args, **kwargs)
 
 class Encuesta(models.Model):
 	pregunta = models.CharField(max_length=350)
