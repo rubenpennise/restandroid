@@ -137,8 +137,8 @@ class RespuestaViewSet(viewsets.ModelViewSet):
 
 
 def index(request):
-    return render_to_response('web/index.html', {
-                                                }, context_instance=RequestContext(request))
+    return render_to_response('web/index.html', {}, context_instance=RequestContext(request))
+    
 def lista_personas(request):
 
     query = request.GET.get('q', '')
