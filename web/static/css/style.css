@@ -1,0 +1,28 @@
+.fondo-gris{
+	background-color: #9D9B9B;
+}
+
+.tile-btn {
+    background: none repeat scroll 0 0 #61B0E9;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 90px;
+    margin: 5px;
+    text-align: center;
+    width: 105px;}
+
+.align-center{
+	text-align: center;
+}
+.dibujo{
+    display: block;
+    font-size: 32px;
+    line-height: 32px;
+    margin-top: 14px;
+    }
+.texto-span{
+	    display: block;
+    font-size: 14px;
+
+    margin-top: 0px;
+}
