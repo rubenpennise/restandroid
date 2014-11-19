@@ -126,4 +126,41 @@ class RespuestaSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Respuesta
 		fields = ('respuesta','resultado','preguntaAsociada','codigo')
-		
+
+""" aqui vamos a aplicar otra forma de serializers de modo de evitar el problema
+con las claves foraneas a la hora de dar de alta relaciones uno a muchos."""
+class Persona2Serializer(serializers.ModelSerializer):
+	cobertura = serializers.PrimaryKeyRelatedField(many=False)
+	discapacidad = serializers.PrimaryKeyRelatedField(many=False)
+	nivelAprobado = serializers.PrimaryKeyRelatedField(many=False)
+	motivosAbandono = serializers.PrimaryKeyRelatedField(many=False)
+	oficio = serializers.PrimaryKeyRelatedField(many=False)
+	condicionActividad = serializers.PrimaryKeyRelatedField(many=False)
+	estadoSalud = EstadoSaludSerializer(many=False)
+	class Meta:
+		model = Persona
+		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','condicionActividad')
+
+class Vivienda2Serializer(serializers.ModelSerializer):
+	tipoVivienda = serializers.PrimaryKeyRelatedField(many=False)
+	tenencia = serializers.PrimaryKeyRelatedField(many=False)
+	servicio = ServicioSerializer(many=False)
+	banio = BanioSerializer(many=False)
+	departamento = serializers.PrimaryKeyRelatedField(many=False)
+	municipio = serializers.PrimaryKeyRelatedField(many=False)
+	localidad =serializers.PrimaryKeyRelatedField(many=False)
+	vivienda = Persona2Serializer(many=True)
+	class Meta:
+		model = Vivienda
+		fields = ('barrio','calle','numero','piso','dpto','tipoVivienda','tenencia','cantidadHabitaciones','urgenciasBasicas','departamento','municipio','localidad','servicio','banio','vivienda')
+
+class Respuesta2Serializer(serializers.ModelSerializer):
+	class Meta:
+		model = Respuesta
+		fields = ('respuesta','resultado','codigo')
+
+class Pregunta2Serializer(serializers.ModelSerializer):
+	preguntaAsociada = Respuesta2Serializer(many=True)
+	class Meta:
+		model = Pregunta
+		fields = ('pregunta','fecha','codigo','preguntaAsociada')

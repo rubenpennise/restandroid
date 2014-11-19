@@ -38,6 +38,10 @@ class ViviendaViewSet(viewsets.ModelViewSet):
     queryset = Vivienda.objects.all()
     serializer_class = ViviendaSerializer
 
+class Vivienda2ViewSet(viewsets.ModelViewSet):
+    queryset = Vivienda.objects.all()
+    serializer_class = Vivienda2Serializer
+
 class TenenciaViewSet(viewsets.ModelViewSet):
     queryset = Tenencia.objects.all()
     serializer_class = TenenciaSerializer
@@ -112,6 +116,10 @@ class EstadoSaludViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
+class Pregunta2ViewSet(viewsets.ModelViewSet):
+    queryset = Pregunta.objects.all()
+    serializer_class = Pregunta2Serializer
+
 class PreguntaViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
     serializer_class = PreguntaSerializer
@@ -131,6 +139,25 @@ class RespuestaViewSet(viewsets.ModelViewSet):
         respuesta = Respuesta.objects.get(codigo=pk)
         #print respuesta.pregunta
         serializer = RespuestaSerializer(data=request.DATA)
+        if serializer.is_valid():
+            #respuesta.respuesta=serializer.data['respuesta']
+            respuesta.resultado=serializer.data['resultado']
+            respuesta.save()
+            data={'status': 'respuesta update'}
+            return Response(data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+class Respuesta2ViewSet(viewsets.ModelViewSet):
+    queryset = Respuesta.objects.all()
+    serializer_class = Respuesta2Serializer
+
+    @detail_route(methods=['post'])
+    def set_cantidad(self, request, pk=None):
+        respuesta = Respuesta.objects.get(codigo=pk)
+        #print respuesta.pregunta
+        serializer = Respuesta2Serializer(data=request.DATA)
         if serializer.is_valid():
             #respuesta.respuesta=serializer.data['respuesta']
             respuesta.resultado=serializer.data['resultado']

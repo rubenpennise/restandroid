@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'web',
     'padron',
     'bootstrap3',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
