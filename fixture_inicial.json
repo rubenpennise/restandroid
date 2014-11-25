@@ -1,0 +1,2482 @@
+[
+{
+    "pk": 1, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Ambato"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Ancasti"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Andalgala"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Antofagasta de la Sierra"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Belen"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Capayan"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Capital"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "El Alto"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Fray Mamerto Esquiu"
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "La Paz"
+    }
+},
+{
+    "pk": 11, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Paclin"
+    }
+},
+{
+    "pk": 12, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Poman"
+    }
+},
+{
+    "pk": 13, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Santa Maria"
+    }
+},
+{
+    "pk": 14, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Santa Rosa"
+    }
+},
+{
+    "pk": 15, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Tinogasta"
+    }
+},
+{
+    "pk": 16, 
+    "model": "web.departamento", 
+    "fields": {
+        "nombre": "Valle Viejo"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "La Puerta", 
+        "departamento": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Los Varela", 
+        "departamento": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Las Juntas", 
+        "departamento": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "El Rodeo", 
+        "departamento": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Ancasti", 
+        "departamento": 2
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Andalgala", 
+        "departamento": 3
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Aconquija", 
+        "departamento": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Antofagasta de la Sierra", 
+        "departamento": 4
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Belen", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Londres", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 11, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Puerta de San Jose", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 12, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Pozo de Piedra", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 13, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Puerta de Corral Quemado", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Corral Quemado", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 15, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Hualfin", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 16, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Villa Vil", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 17, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "San Fernando", 
+        "departamento": 5
+    }
+},
+{
+    "pk": 18, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Capayan", 
+        "departamento": 6
+    }
+},
+{
+    "pk": 19, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Huillapima", 
+        "departamento": 6
+    }
+},
+{
+    "pk": 20, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "San Fernando del Valle de Catamarca", 
+        "departamento": 7
+    }
+},
+{
+    "pk": 21, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "El Alto", 
+        "departamento": 8
+    }
+},
+{
+    "pk": 22, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Tapso", 
+        "departamento": 8
+    }
+},
+{
+    "pk": 23, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Fray Mamerto Esquiu", 
+        "departamento": 9
+    }
+},
+{
+    "pk": 24, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Recreo", 
+        "departamento": 10
+    }
+},
+{
+    "pk": 25, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Ica\u00f1o", 
+        "departamento": 10
+    }
+},
+{
+    "pk": 26, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Paclin", 
+        "departamento": 11
+    }
+},
+{
+    "pk": 27, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Poman", 
+        "departamento": 12
+    }
+},
+{
+    "pk": 28, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Mutquin", 
+        "departamento": 12
+    }
+},
+{
+    "pk": 29, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Saujil", 
+        "departamento": 12
+    }
+},
+{
+    "pk": 30, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Santa Maria", 
+        "departamento": 13
+    }
+},
+{
+    "pk": 31, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "San Jose", 
+        "departamento": 13
+    }
+},
+{
+    "pk": 32, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Santa Rosa", 
+        "departamento": 14
+    }
+},
+{
+    "pk": 33, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Tinogasta", 
+        "departamento": 15
+    }
+},
+{
+    "pk": 34, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Fiambala", 
+        "departamento": 15
+    }
+},
+{
+    "pk": 35, 
+    "model": "web.municipio", 
+    "fields": {
+        "nombre": "Valle Viejo", 
+        "departamento": 16
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Puerta", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Huaycama", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Colpes", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Isla Larga", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Banda Norte", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Banda Sur", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Talar", 
+        "municipio": 1
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Varela", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Talas", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Castillos", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 11, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Chuchucaruana", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 12, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Bolson", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 13, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Singuil", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 14, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Chacritas", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 15, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Humaya", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 16, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Polar", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 17, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Puesto Medio", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 18, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Cerco de Palo", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 19, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Rodeo Grande", 
+        "municipio": 2
+    }
+},
+{
+    "pk": 20, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Juntas", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 21, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Cuchillas", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 22, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Sauce", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 23, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Salvia", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 24, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Ermita", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 25, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Bizcotal", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 26, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Potrerillos", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 27, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Burras", 
+        "municipio": 3
+    }
+},
+{
+    "pk": 28, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Rodeo", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 29, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Molle Quemado", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 30, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Loros", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 31, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Ca?ada", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 32, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Agua Verde", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 33, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Puesto", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 34, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Alto de las Juntas", 
+        "municipio": 4
+    }
+},
+{
+    "pk": 35, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ancasti", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 36, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Anquincila", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 37, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Candelaria", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 38, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ipizca", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 39, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Yerba Buena", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 40, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Majada", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 41, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Mogotes", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 42, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Tacana", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 43, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Chorro", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 44, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Taco", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 45, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Quebrachal", 
+        "municipio": 5
+    }
+},
+{
+    "pk": 46, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Aguada", 
+        "municipio": 6
+    }
+},
+{
+    "pk": 47, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Chaquiago", 
+        "municipio": 6
+    }
+},
+{
+    "pk": 48, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Potrero", 
+        "municipio": 6
+    }
+},
+{
+    "pk": 49, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Choya", 
+        "municipio": 6
+    }
+},
+{
+    "pk": 50, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Amanao", 
+        "municipio": 6
+    }
+},
+{
+    "pk": 51, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Villa Aconquija", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 52, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Rio Potrero", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 53, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Charqueadero", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 54, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Alto de las Juntas", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 55, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Mesada", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 56, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El lindero", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 57, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Alamito", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 58, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Buena Vista", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 59, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Condor Huasi", 
+        "municipio": 7
+    }
+},
+{
+    "pk": 60, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Villa de Antofagasta de la Sierra", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 61, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Pe?on", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 62, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Antofalla", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 63, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Nacimientos", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 64, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Aguas Calientes", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 65, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Loro Huasi", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 66, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Colorados", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 67, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Calalaste", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 68, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Pirca", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 69, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Carachi Pampa", 
+        "municipio": 8
+    }
+},
+{
+    "pk": 70, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Belen", 
+        "municipio": 9
+    }
+},
+{
+    "pk": 71, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Puntilla", 
+        "municipio": 9
+    }
+},
+{
+    "pk": 72, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Londres", 
+        "municipio": 10
+    }
+},
+{
+    "pk": 73, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Puerta San Jose", 
+        "municipio": 11
+    }
+},
+{
+    "pk": 74, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Condor Huasi", 
+        "municipio": 12
+    }
+},
+{
+    "pk": 75, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Juntas", 
+        "municipio": 12
+    }
+},
+{
+    "pk": 76, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Puerta de Corral Quemado", 
+        "municipio": 13
+    }
+},
+{
+    "pk": 77, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Jacipunco", 
+        "municipio": 13
+    }
+},
+{
+    "pk": 78, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Durazno", 
+        "municipio": 13
+    }
+},
+{
+    "pk": 79, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Corral Quemado", 
+        "municipio": 14
+    }
+},
+{
+    "pk": 80, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Farrallon Negro", 
+        "municipio": 15
+    }
+},
+{
+    "pk": 81, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Hualfin", 
+        "municipio": 15
+    }
+},
+{
+    "pk": 82, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Nacimientos", 
+        "municipio": 15
+    }
+},
+{
+    "pk": 83, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Barranca Larga", 
+        "municipio": 16
+    }
+},
+{
+    "pk": 84, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Villa Vil", 
+        "municipio": 16
+    }
+},
+{
+    "pk": 85, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Fernando", 
+        "municipio": 17
+    }
+},
+{
+    "pk": 86, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Chumbicha", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 87, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Capayan", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 88, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "san Pedro", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 89, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Adolfo E. Carranza", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 90, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Martin", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 91, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Balde de la Punta", 
+        "municipio": 18
+    }
+},
+{
+    "pk": 92, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Pablo", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 93, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Ba?ado", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 94, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Huillapima", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 95, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Coneta", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 96, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Colonia Nueva Coneta", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 97, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Miraflores", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 98, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Colonia del Valle", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 99, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Concepcion", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 100, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Angeles", 
+        "municipio": 19
+    }
+},
+{
+    "pk": 101, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San fernando del Valle", 
+        "municipio": 20
+    }
+},
+{
+    "pk": 102, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Pantanillo", 
+        "municipio": 20
+    }
+},
+{
+    "pk": 103, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Barrio Bancario", 
+        "municipio": 20
+    }
+},
+{
+    "pk": 104, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Alto", 
+        "municipio": 21
+    }
+},
+{
+    "pk": 105, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Guayamba", 
+        "municipio": 21
+    }
+},
+{
+    "pk": 106, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Corrales", 
+        "municipio": 21
+    }
+},
+{
+    "pk": 107, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Vilisman", 
+        "municipio": 21
+    }
+},
+{
+    "pk": 108, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Infanzon", 
+        "municipio": 21
+    }
+},
+{
+    "pk": 109, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Tapso", 
+        "municipio": 22
+    }
+},
+{
+    "pk": 110, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Villa las Pirquitas", 
+        "municipio": 23
+    }
+},
+{
+    "pk": 111, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Pomancillo Este", 
+        "municipio": 23
+    }
+},
+{
+    "pk": 112, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Pomancillo Oeste", 
+        "municipio": 23
+    }
+},
+{
+    "pk": 113, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Collagasta", 
+        "municipio": 23
+    }
+},
+{
+    "pk": 114, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Jose", 
+        "municipio": 23
+    }
+},
+{
+    "pk": 115, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Recreo", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 116, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Dorada", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 117, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Esquiu", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 118, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Casa de Piedra", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 119, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Quimilo", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 120, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Guardia", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 121, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Aybal", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 122, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ramblones", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 123, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Ba?ado", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 124, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Divisadero", 
+        "municipio": 24
+    }
+},
+{
+    "pk": 125, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ica?o", 
+        "municipio": 25
+    }
+},
+{
+    "pk": 126, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Antonio", 
+        "municipio": 25
+    }
+},
+{
+    "pk": 127, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Esquinas", 
+        "municipio": 25
+    }
+},
+{
+    "pk": 128, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Palmitas", 
+        "municipio": 25
+    }
+},
+{
+    "pk": 129, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Quiros", 
+        "municipio": 25
+    }
+},
+{
+    "pk": 130, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Monte Potrero", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 131, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Merced", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 132, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Amadores", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 133, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Palo Labrado", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 134, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Bajada", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 135, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Via", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 136, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Higuera", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 137, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Rosario", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 138, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Antonio", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 139, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Lajas", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 140, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Villa de Balcozna", 
+        "municipio": 26
+    }
+},
+{
+    "pk": 141, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Pajonal", 
+        "municipio": 27
+    }
+},
+{
+    "pk": 142, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Poman", 
+        "municipio": 27
+    }
+},
+{
+    "pk": 143, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Colana", 
+        "municipio": 27
+    }
+},
+{
+    "pk": 144, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Apoyaco", 
+        "municipio": 28
+    }
+},
+{
+    "pk": 145, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Mutquin", 
+        "municipio": 28
+    }
+},
+{
+    "pk": 146, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Rincon", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 147, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Sijan", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 148, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Saujil", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 149, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Colpes", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 150, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Joyango", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 151, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Miguel", 
+        "municipio": 29
+    }
+},
+{
+    "pk": 152, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Caspichango", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 153, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Santa Maria", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 154, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Mojarras", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 155, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Fuerte Quemado", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 156, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Puesto", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 157, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Cha?ar Punco", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 158, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Loro Huasi", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 159, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Cajon", 
+        "municipio": 30
+    }
+},
+{
+    "pk": 160, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Loma", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 161, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Famatanca", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 162, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Jose", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 163, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "yapes", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 164, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Andalhuala", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 165, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Desmonte", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 166, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Punta de Balasto", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 167, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "La Hoyada", 
+        "municipio": 31
+    }
+},
+{
+    "pk": 168, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ba?ado de Ovanta", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 169, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Ca?as", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 170, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Lavalle", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 171, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Pedro", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 172, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Ampolla", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 173, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Salauca", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 174, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Alta Gracia", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 175, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Buena Vista", 
+        "municipio": 32
+    }
+},
+{
+    "pk": 176, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Costa de Reyes", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 177, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Tinogasta", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 178, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Banda de Lucero", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 179, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Copacabana", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 180, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Puesto ", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 181, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Anillaco", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 182, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Salado", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 183, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Cordobita", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 184, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Pueblito", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 185, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Los Balverdis", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 186, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Cerro Negro", 
+        "municipio": 33
+    }
+},
+{
+    "pk": 187, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Fiambala", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 188, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Saujil", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 189, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Medanitos", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 190, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Punta del Agua", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 191, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Antinaco", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 192, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Taton", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 193, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Palo Blanco", 
+        "municipio": 34
+    }
+},
+{
+    "pk": 194, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "San Isidro", 
+        "municipio": 35
+    }
+},
+{
+    "pk": 195, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "El Portezuelo", 
+        "municipio": 35
+    }
+},
+{
+    "pk": 196, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Santa Cruz", 
+        "municipio": 35
+    }
+},
+{
+    "pk": 197, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Huaycama", 
+        "municipio": 35
+    }
+},
+{
+    "pk": 198, 
+    "model": "web.localidad", 
+    "fields": {
+        "nombre": "Las Tejas", 
+        "municipio": 35
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Sin Vivienda"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Vivienda con entrada Independiente"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Vivienda con entrada en Comun"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Conventillo o Inquilinato"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Vivienda en lugar de Trabajo"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Pension"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Hotel"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Vivienda en Villa"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Vivienda Movil"
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.tipovivienda", 
+    "fields": {
+        "nombre": "Local no construido para Habitacion"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Propia con Escritura"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Propia sin Escritura"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Vivienda IPV o Hipoteca"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Cedida en Prestamo"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Cedida relacion de dependencia Laboral"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Ocupada de Hecho"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.tenencia", 
+    "fields": {
+        "nombre": "Otra Situacion"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "No tiene"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "PAMI"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "OSEP"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "Prepaga"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "Emergencias M\u00e9dicas"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "No especificado"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.coberturasalud", 
+    "fields": {
+        "nombre": "No sabe / No responde"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Ceguera"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Mudes"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Sordera"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Falta de miembros"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Uso de pr\u00f3tesis"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Problemas mentales"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Retraso mental"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Otro tipo"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "Sin discapacidad"
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.discapacidad", 
+    "fields": {
+        "nombre": "No sabe / No responde"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Inicial"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Primario"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "EGB"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Secundario"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Polimmodal"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Terciario"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Universitario"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Posgrado universitario"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "Educaci\u00f3n especial"
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "No corresponde"
+    }
+},
+{
+    "pk": 11, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "No especificado"
+    }
+},
+{
+    "pk": 12, 
+    "model": "web.nivelaprobado", 
+    "fields": {
+        "nombre": "No sabe / No responde"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "No pod\u00eda pagar gastos de estudio"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Necesitaba / Quer\u00eda trabajar"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Problemas de salud"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Atenci\u00f3n familiar"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Falta de medio de transporte"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Falta de interes"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "Enfermo / Discapacitado"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "No sabe / No responde"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.motivosabandono", 
+    "fields": {
+        "nombre": "No abandono"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Construcci\u00f3n"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Mec\u00e1nica"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Artesania"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Gastronom\u00eda"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Turismo"
+    }
+},
+{
+    "pk": 6, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Cultural / Expresiones"
+    }
+},
+{
+    "pk": 7, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Agricultura"
+    }
+},
+{
+    "pk": 8, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Ganader\u00eda"
+    }
+},
+{
+    "pk": 9, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Tejido / Costura"
+    }
+},
+{
+    "pk": 10, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Computacion"
+    }
+},
+{
+    "pk": 11, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "Otro"
+    }
+},
+{
+    "pk": 12, 
+    "model": "web.oficio", 
+    "fields": {
+        "nombre": "No posee"
+    }
+},
+{
+    "pk": 1, 
+    "model": "web.condicionactividad", 
+    "fields": {
+        "nombre": "Trabaja"
+    }
+},
+{
+    "pk": 2, 
+    "model": "web.condicionactividad", 
+    "fields": {
+        "nombre": "No trabaja y busca"
+    }
+},
+{
+    "pk": 3, 
+    "model": "web.condicionactividad", 
+    "fields": {
+        "nombre": "No trabaja y no busca"
+    }
+},
+{
+    "pk": 4, 
+    "model": "web.condicionactividad", 
+    "fields": {
+        "nombre": "No sabe / No responde"
+    }
+},
+{
+    "pk": 5, 
+    "model": "web.condicionactividad", 
+    "fields": {
+        "nombre": "No especificado"
+    }
+}
+]
