@@ -13,7 +13,7 @@ from django.template import RequestContext
 from rest_framework import status
 from itertools import chain
 from operator import attrgetter
-
+from django.contrib.auth import authenticate, login
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -279,3 +279,36 @@ def vivienda_integrantes(request, vivienda_id):
                                                 }, context_instance=RequestContext(request))
 
 
+
+
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+   # password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('polls.views.index'))
+            # Redirect to a success page.
+                else:
+                    state = 'Cuenta no activada'
+                    return render_to_response('registration/login.html',
+                                locals(),
+                                context_instance=RequestContext(request))
+            # Return a 'disabled account' error message
+            else:
+                malpass = True
+
+                return render_to_response('registration/login.html',
+                                    {'form':form, 'malpass':malpass},
+                                    context_instance=RequestContext(request))
+    else:
+        form = LoginForm()
+        return render_to_response('registration/login.html',
+                                locals(),
+                                context_instance=RequestContext(request))
