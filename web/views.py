@@ -13,7 +13,7 @@ from django.template import RequestContext
 from rest_framework import status
 from itertools import chain
 from operator import attrgetter
-
+from django.contrib.auth import authenticate, login
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -37,6 +37,10 @@ class TipoViviendaViewSet(viewsets.ModelViewSet):
 class ViviendaViewSet(viewsets.ModelViewSet):
     queryset = Vivienda.objects.all()
     serializer_class = ViviendaSerializer
+
+class Vivienda2ViewSet(viewsets.ModelViewSet):
+    queryset = Vivienda.objects.all()
+    serializer_class = Vivienda2Serializer
 
 class TenenciaViewSet(viewsets.ModelViewSet):
     queryset = Tenencia.objects.all()
@@ -90,6 +94,10 @@ class EncuestaViewSet(viewsets.ModelViewSet):
     queryset = Encuesta.objects.all()
     serializer_class = EncuestaSerializer
 
+class EstadoSaludViewSet(viewsets.ModelViewSet):
+    queryset = EstadoSalud.objects.all()
+    serializer_class = EstadoSaludSerializer
+
     @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
         encuesta = Encuesta.objects.get(codigo=pk)
@@ -98,9 +106,9 @@ class EncuestaViewSet(viewsets.ModelViewSet):
         serializer = EncuestaSerializer(data=request.DATA)
         if serializer.is_valid():
             encuesta.pregunta=serializer.data['pregunta']
-            encuesta.respuestaSi= serializer.data['respuestaSi']
-            encuesta.respuestaNo= serializer.data['respuestaNo']
-            encuesta.respuestaNoSabe= serializer.data['respuestaNoSabe']
+            encuesta.respuestaSi += serializer.data['respuestaSi']
+            encuesta.respuestaNo += serializer.data['respuestaNo']
+            encuesta.respuestaNoSabe += serializer.data['respuestaNoSabe']
             encuesta.save()
             data={'status': 'encuesta update'}
             return Response(data,status=status.HTTP_201_CREATED)
@@ -108,9 +116,19 @@ class EncuestaViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
+class Pregunta2ViewSet(viewsets.ModelViewSet):
+    queryset = Pregunta.objects.all()
+    serializer_class = Pregunta2Serializer
+
 class PreguntaViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
     serializer_class = PreguntaSerializer
+
+    @detail_route(methods=['get'])
+    def get_asociada(self, request, pk=None):
+        pregunta = Pregunta.objects.get(pk=pk)
+        serializer = PreguntaSerializer(pregunta)
+        return Response(serializer.data)
 
 class RespuestaViewSet(viewsets.ModelViewSet):
     queryset = Respuesta.objects.all()
@@ -131,14 +149,34 @@ class RespuestaViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
+class Respuesta2ViewSet(viewsets.ModelViewSet):
+    queryset = Respuesta.objects.all()
+    serializer_class = Respuesta2Serializer
+
+    @detail_route(methods=['post'])
+    def set_cantidad(self, request, pk=None):
+        respuesta = Respuesta.objects.get(codigo=pk)
+        #print respuesta.pregunta
+        serializer = Respuesta2Serializer(data=request.DATA)
+        if serializer.is_valid():
+            #respuesta.respuesta=serializer.data['respuesta']
+            respuesta.resultado=serializer.data['resultado']
+            respuesta.save()
+            data={'status': 'respuesta update'}
+            return Response(data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+
 # Create your views here.
 
 ######## Funciones #######
 
 
 def index(request):
-    return render_to_response('web/index.html', {
-                                                }, context_instance=RequestContext(request))
+    return render_to_response('web/index.html', {}, context_instance=RequestContext(request))
+    
 def lista_personas(request):
 
     query = request.GET.get('q', '')
@@ -241,3 +279,36 @@ def vivienda_integrantes(request, vivienda_id):
                                                 }, context_instance=RequestContext(request))
 
 
+
+
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+   # password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('polls.views.index'))
+            # Redirect to a success page.
+                else:
+                    state = 'Cuenta no activada'
+                    return render_to_response('registration/login.html',
+                                locals(),
+                                context_instance=RequestContext(request))
+            # Return a 'disabled account' error message
+            else:
+                malpass = True
+
+                return render_to_response('registration/login.html',
+                                    {'form':form, 'malpass':malpass},
+                                    context_instance=RequestContext(request))
+    else:
+        form = LoginForm()
+        return render_to_response('registration/login.html',
+                                locals(),
+                                context_instance=RequestContext(request))
