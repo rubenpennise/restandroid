@@ -14,6 +14,7 @@ from rest_framework import status
 from itertools import chain
 from operator import attrgetter
 from django.contrib.auth import authenticate, login
+import base64
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -312,3 +313,20 @@ def login_view(request):
         return render_to_response('registration/login.html',
                                 locals(),
                                 context_instance=RequestContext(request))
+
+def login(request):
+    auth = request.GET.get('Authorization','')
+    if autho:
+        authdecoded=base64.b64decode(auth)
+        print authdecoded
+        userdata=authdecoded.split(':')
+        print userdata[0]
+        print userdata[1]
+        user = authenticate(username=userdata[0], password=userdata[1])
+        if user is not None:
+            if user.is_active:
+                return Response(status=status.HTTP_200_OK)
+            else:
+                return Response(status=status.HTTP_401_UNAUTHORIZED)    
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)    
