@@ -132,6 +132,48 @@ class EstadoSalud(models.Model):
 	nombre = models.CharField(max_length="300")
 	descripcion = models.CharField(max_length="2000")
 
+class SaludReproductiva(models.Model):
+	OPCIONES_EMBARAZO_RIESGOSO = (
+        ('SI', 'SI'),
+        ('NO', 'NO'),
+        ('NS - NC', 'NO SABE - NO CONTESTA'),
+        )
+	OPCIONES_LUGARES_DE_CONTROL = (
+		('PUBLICO', 'ESTABLECIMIENTO PUBLICO'),
+		('PRIVADO', 'ESTABLECIMIENTO PRIVADO'),
+		('OTRO', 'OTRO LUGAR'),
+		('NS - NC', 'NO SABE - NO CONTESTA'),
+			)
+	OPCIONES_TIPO_DE_PARTO = (
+		('NORMAL', 'NORMAL'),
+		('CESAREA', 'CESAREA'),
+		('NS - NC', 'NO SABE - NO CONTESTA'),
+			)
+	OPCIONES_TIPO_DE_ABORTO = (
+		('OBSTETRICO', 'OBSTETRICO'),
+		('PROVOCADO', 'PROVOCADO'),
+		('ESPONTANEO', 'ESPONTANEO'),
+		('NS - NC', 'NO SABE - NO CONTESTA'),
+			)
+	OPCIONES_LUGAR_DE_OCURRENCIA = (
+		('PUBLICO', 'ESTABLE PUBLICO'),
+		('PRIVADO', 'ESTABLE PRIVADO'),
+		('PARTICULAR', 'DOMICILIO PARTICULAR'),
+		('OTRO', 'OTRO LUGAR'),
+		('NS - NC', 'NO SABE - NO CONTESTA'),
+			)
+	
+
+	usoDeAnticonceptivo = models.BooleanField(default=False)
+	tipoDeAnticonceptivo = models.ForeignKey(TipoDeAnticonceptivo, related_name="tipoDeAnticonceptivo", null=True, blank=True)
+	fechaUltimaMenstruacion = models.DateField(default=datetime.now)
+	fechaProbableParto =  models.DateField(default=datetime.now)
+	embarazoRiesgoso = models.CharField(choices=OPCIONES_EMBARAZO)
+	lugaresDeControl = models.CharField(choices=OPCIONES_LUGARES_DE_CONTROL)
+	tipoDeParto = models.CharField(choices=OPCIONES_TIPO_DE_PARTO)
+	tipoDeAborto = models.CharField(choices=OPCIONES_TIPO_DE_ABORTO)
+	lugarDeAborto = models.CharField(choices=OPCIONES_LUGAR_DE_OCURRENCIA)
+	
 class Persona(models.Model):
 	apeNombre = models.CharField("Nombre y apellido", max_length=100)
 	dni = models.CharField(max_length=30)
@@ -155,7 +197,11 @@ class Persona(models.Model):
 
 	jefeDeHogar = models.BooleanField(default=False)
 	estadoSalud = models.ForeignKey(EstadoSalud, related_name="estadoSalud",null=True, blank=True,verbose_name=u"estado de salud")
-	infoAdicional = models.CharField("Información adicional", blank=True, null=True, max_length=2000)
+	infoAdicional = models.CharField("Información  adicional", blank=True, null=True, max_length=2000)
+	
+
+
+	saludReproductiva = models.ForeignKey(saludReproductiva, related_name="saludReproductiva", null=True, blank=True)
 
 	def save(self, *args, **kwargs):
 		try:
