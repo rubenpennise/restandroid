@@ -138,6 +138,17 @@ class SaludReproductiva(models.Model):
         ('NO', 'NO'),
         ('NS - NC', 'NO SABE - NO CONTESTA'),
         )
+	OPCIONES_TIPO_DE_ANTICONCEPTIVO = (
+        ('PASTILLAS', 'PASTILLAS'),
+        ('OVULOS', 'OVULOS'),
+        ('PRESERVATIVO', 'PRESERVATIVO'),
+        ('ESPIRAL - DIU', 'ESPIRAL - DIU'),
+        ('DIAFRAGMA', 'DIAFRAGMA'),
+        ('RITMO - CONTROL PERIODO MENSTRUAL', 'RITMO - CONTROL PERIODO MENSTRUAL'),
+        ('OTRO METODO', 'OTRO METODO'),
+        ('NS - NC', 'NO SABE - NO CONTESTA'),
+
+        )
 	OPCIONES_LUGARES_DE_CONTROL = (
 		('PUBLICO', 'ESTABLECIMIENTO PUBLICO'),
 		('PRIVADO', 'ESTABLECIMIENTO PRIVADO'),
@@ -165,7 +176,7 @@ class SaludReproductiva(models.Model):
 	
 
 	usoDeAnticonceptivo = models.BooleanField(default=False)
-	tipoDeAnticonceptivo = models.ForeignKey(TipoDeAnticonceptivo, related_name="tipoDeAnticonceptivo", null=True, blank=True)
+	tipoDeAnticonceptivo = models.CharField(choices=OPCIONES_TIPO_DE_ANTICONCEPTIVO)
 	fechaUltimaMenstruacion = models.DateField(default=datetime.now)
 	fechaProbableParto =  models.DateField(default=datetime.now)
 	embarazoRiesgoso = models.CharField(choices=OPCIONES_EMBARAZO)
@@ -173,7 +184,7 @@ class SaludReproductiva(models.Model):
 	tipoDeParto = models.CharField(choices=OPCIONES_TIPO_DE_PARTO)
 	tipoDeAborto = models.CharField(choices=OPCIONES_TIPO_DE_ABORTO)
 	lugarDeAborto = models.CharField(choices=OPCIONES_LUGAR_DE_OCURRENCIA)
-	
+
 class Persona(models.Model):
 	apeNombre = models.CharField("Nombre y apellido", max_length=100)
 	dni = models.CharField(max_length=30)
