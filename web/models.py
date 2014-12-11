@@ -176,14 +176,14 @@ class SaludReproductiva(models.Model):
 	
 
 	usoDeAnticonceptivo = models.BooleanField(default=False)
-	tipoDeAnticonceptivo = models.CharField(choices=OPCIONES_TIPO_DE_ANTICONCEPTIVO)
+	tipoDeAnticonceptivo = models.CharField(max_length=100,choices=OPCIONES_TIPO_DE_ANTICONCEPTIVO)
 	fechaUltimaMenstruacion = models.DateField(default=datetime.now)
 	fechaProbableParto =  models.DateField(default=datetime.now)
-	embarazoRiesgoso = models.CharField(choices=OPCIONES_EMBARAZO)
-	lugaresDeControl = models.CharField(choices=OPCIONES_LUGARES_DE_CONTROL)
-	tipoDeParto = models.CharField(choices=OPCIONES_TIPO_DE_PARTO)
-	tipoDeAborto = models.CharField(choices=OPCIONES_TIPO_DE_ABORTO)
-	lugarDeAborto = models.CharField(choices=OPCIONES_LUGAR_DE_OCURRENCIA)
+	embarazoRiesgoso = models.CharField(max_length=100,choices=OPCIONES_EMBARAZO_RIESGOSO)
+	lugaresDeControl = models.CharField(max_length=100,choices=OPCIONES_LUGARES_DE_CONTROL)
+	tipoDeParto = models.CharField(max_length=100,choices=OPCIONES_TIPO_DE_PARTO)
+	tipoDeAborto = models.CharField(max_length=100,choices=OPCIONES_TIPO_DE_ABORTO)
+	lugarDeAborto = models.CharField(max_length=100,choices=OPCIONES_LUGAR_DE_OCURRENCIA)
 
 class Persona(models.Model):
 	apeNombre = models.CharField("Nombre y apellido", max_length=100)
@@ -212,7 +212,7 @@ class Persona(models.Model):
 	
 
 
-	saludReproductiva = models.ForeignKey(saludReproductiva, related_name="saludReproductiva", null=True, blank=True)
+	saludReproductiva = models.ForeignKey(SaludReproductiva, related_name="saludReproductiva", null=True, blank=True)
 
 	def save(self, *args, **kwargs):
 		try:

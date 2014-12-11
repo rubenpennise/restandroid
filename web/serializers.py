@@ -127,6 +127,11 @@ class RespuestaSerializer(serializers.ModelSerializer):
 		model = Respuesta
 		fields = ('respuesta','resultado','preguntaAsociada','codigo')
 
+class SaludReproductivaSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = SaludReproductiva
+		fields = ('usoDeAnticonceptivo','tipoDeAnticonceptivo','fechaUltimaMenstruacion','fechaProbableParto','embarazoRiesgoso','lugaresDeControl','tipoDeParto','tipoDeAborto','lugarDeAborto')
+
 """ aqui vamos a aplicar otra forma de serializers de modo de evitar el problema
 con las claves foraneas a la hora de dar de alta relaciones uno a muchos."""
 class Persona2Serializer(serializers.ModelSerializer):
@@ -137,9 +142,10 @@ class Persona2Serializer(serializers.ModelSerializer):
 	oficio = serializers.PrimaryKeyRelatedField(many=False)
 	condicionActividad = serializers.PrimaryKeyRelatedField(many=False)
 	estadoSalud = EstadoSaludSerializer(many=False)
+	saludReproductiva = SaludReproductivaSerializer(many=False)
 	class Meta:
 		model = Persona
-		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','condicionActividad')
+		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','condicionActividad','saludReproductiva')
 
 class Vivienda2Serializer(serializers.ModelSerializer):
 	tipoVivienda = serializers.PrimaryKeyRelatedField(many=False)

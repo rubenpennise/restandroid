@@ -95,10 +95,6 @@ class EncuestaViewSet(viewsets.ModelViewSet):
     queryset = Encuesta.objects.all()
     serializer_class = EncuestaSerializer
 
-class EstadoSaludViewSet(viewsets.ModelViewSet):
-    queryset = EstadoSalud.objects.all()
-    serializer_class = EstadoSaludSerializer
-
     @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
         encuesta = Encuesta.objects.get(codigo=pk)
@@ -116,6 +112,10 @@ class EstadoSaludViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
+
+class EstadoSaludViewSet(viewsets.ModelViewSet):
+    queryset = EstadoSalud.objects.all()
+    serializer_class = EstadoSaludSerializer
 
 class Pregunta2ViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
@@ -142,7 +142,7 @@ class RespuestaViewSet(viewsets.ModelViewSet):
         serializer = RespuestaSerializer(data=request.DATA)
         if serializer.is_valid():
             #respuesta.respuesta=serializer.data['respuesta']
-            respuesta.resultado=serializer.data['resultado']
+            respuesta.resultado+=serializer.data['resultado']
             respuesta.save()
             data={'status': 'respuesta update'}
             return Response(data,status=status.HTTP_201_CREATED)
@@ -161,13 +161,17 @@ class Respuesta2ViewSet(viewsets.ModelViewSet):
         serializer = Respuesta2Serializer(data=request.DATA)
         if serializer.is_valid():
             #respuesta.respuesta=serializer.data['respuesta']
-            respuesta.resultado=serializer.data['resultado']
+            respuesta.resultado+=serializer.data['resultado']
             respuesta.save()
             data={'status': 'respuesta update'}
             return Response(data,status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
+
+class SaludReproductivaViewSet(viewsets.ModelViewSet):
+    queryset = SaludReproductiva.objects.all()
+    serializer_class = SaludReproductivaSerializer
 
 
 # Create your views here.
