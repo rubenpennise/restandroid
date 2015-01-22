@@ -173,6 +173,18 @@ class SaludReproductivaViewSet(viewsets.ModelViewSet):
     queryset = SaludReproductiva.objects.all()
     serializer_class = SaludReproductivaSerializer
 
+class EntornoAmbientalViewSet(viewsets.ModelViewSet):
+    queryset = EntornoAmbiental.objects.all()
+    serializer_class = EntornoAmbientalSerializer
+
+class ConsumoAnimalViewSet(viewsets.ModelViewSet):
+    queryset = ConsumoAnimal.objects.all()
+    serializer_class = ConsumoAnimalSerializer
+
+class ConsumoCultivosViewSet(viewsets.ModelViewSet):
+    queryset = ConsumoCultivos.objects.all()
+    serializer_class = ConsumoCultivosSerializer
+
 
 # Create your views here.
 

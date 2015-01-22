@@ -132,6 +132,21 @@ class SaludReproductivaSerializer(serializers.ModelSerializer):
 		model = SaludReproductiva
 		fields = ('usoDeAnticonceptivo','tipoDeAnticonceptivo','fechaUltimaMenstruacion','fechaProbableParto','embarazoRiesgoso','lugaresDeControl','tipoDeParto','tipoDeAborto','lugarDeAborto')
 
+class EntornoAmbientalSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = EntornoAmbiental
+		fields = ('ubicacionVilla','ubicacionZonaInundable','existenciaBasural','existenciaCloacas','aguaCorriente','energiaElectrica','gasNatural','cuadraPavimentada','recoleccionResiduos','transportePublico','alumbradoPublico')
+
+class ConsumoAnimalSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = ConsumoAnimal
+		fields = ('aves','conejos','cerdos','ovejasCabras','vacas','otrosAnimales','noCria')
+
+class ConsumoCultivosSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = ConsumoCultivos
+		fields = ('frutales','hortalizas','tuberculos','granos','huerta','otrosCultivos','ninguno')
+
 """ aqui vamos a aplicar otra forma de serializers de modo de evitar el problema
 con las claves foraneas a la hora de dar de alta relaciones uno a muchos."""
 class Persona2Serializer(serializers.ModelSerializer):
@@ -147,6 +162,7 @@ class Persona2Serializer(serializers.ModelSerializer):
 		model = Persona
 		fields = ('apeNombre','dni','fechaNac','sexo','telefono','correo','cobertura','discapacidad','nivelAprobado','motivosAbandono','oficio','jefeDeHogar','estadoSalud','condicionActividad','saludReproductiva')
 
+
 class Vivienda2Serializer(serializers.ModelSerializer):
 	tipoVivienda = serializers.PrimaryKeyRelatedField(many=False)
 	tenencia = serializers.PrimaryKeyRelatedField(many=False)
@@ -156,9 +172,12 @@ class Vivienda2Serializer(serializers.ModelSerializer):
 	municipio = serializers.PrimaryKeyRelatedField(many=False)
 	localidad =serializers.PrimaryKeyRelatedField(many=False)
 	vivienda = Persona2Serializer(many=True)
+	entornoAmbiental = EntornoAmbientalSerializer(many=False)
+	consumoAnimal = ConsumoAnimalSerializer(many=False)
+	consumoCultivos = ConsumoCultivosSerializer(many=False)
 	class Meta:
 		model = Vivienda
-		fields = ('barrio','calle','numero','piso','dpto','tipoVivienda','tenencia','cantidadHabitaciones','urgenciasBasicas','departamento','municipio','localidad','servicio','banio','vivienda')
+		fields = ('barrio','calle','numero','piso','dpto','tipoVivienda','tenencia','cantidadHabitaciones','urgenciasBasicas','departamento','municipio','localidad','servicio','banio','vivienda','entornoAmbiental','consumoAnimal','consumoCultivos')
 
 class Respuesta2Serializer(serializers.ModelSerializer):
 	class Meta:

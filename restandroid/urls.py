@@ -28,6 +28,9 @@ router.register(r'viviendas2', views.Vivienda2ViewSet)
 router.register(r'preguntas2', views.Pregunta2ViewSet)
 router.register(r'respuestas2', views.Respuesta2ViewSet)
 router.register(r'saludreproductiva', views.SaludReproductivaViewSet)
+router.register(r'entornoambiental', views.EntornoAmbientalViewSet)
+router.register(r'consumoanimal', views.ConsumoAnimalViewSet)
+router.register(r'consumocultivos', views.ConsumoCultivosViewSet)
 
 from django.contrib import admin
 admin.autodiscover()

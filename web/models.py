@@ -3,6 +3,8 @@ from django.db import models
 from datetime import datetime
 from padron.models import *
 import hashlib 
+import django_filters
+
 class Departamento(models.Model):
 	nombre = models.CharField(max_length=75)
 
@@ -66,6 +68,37 @@ class Banio(models.Model):
 		else:
 			return "No"
 
+class EntornoAmbiental(models.Model):
+	ubicacionVilla= models.BooleanField(default=False)
+	ubicacionZonaInundable= models.BooleanField(default=False)
+	existenciaBasural= models.BooleanField(default=False)
+	existenciaCloacas= models.BooleanField(default=False)
+	aguaCorriente= models.BooleanField(default=False)
+	energiaElectrica= models.BooleanField(default=False)
+	gasNatural= models.BooleanField(default=False)
+	cuadraPavimentada= models.BooleanField(default=False)
+	recoleccionResiduos= models.BooleanField(default=False)
+	transportePublico= models.BooleanField(default=False)
+	alumbradoPublico= models.BooleanField(default=False)
+
+class ConsumoAnimal(models.Model):
+	aves= models.BooleanField(default=False)
+	conejos= models.BooleanField(default=False)
+	cerdos= models.BooleanField(default=False)
+	ovejasCabras= models.BooleanField(default=False)
+	vacas= models.BooleanField(default=False)
+	otrosAnimales= models.BooleanField(default=False)
+	noCria= models.BooleanField(default=False)
+
+class ConsumoCultivos(models.Model):
+	frutales= models.BooleanField(default=False)
+	hortalizas= models.BooleanField(default=False)
+	tuberculos= models.BooleanField(default=False)
+	granos= models.BooleanField(default=False)
+	huerta= models.BooleanField(default=False)
+	otrosCultivos= models.BooleanField(default=False)
+	ninguno= models.BooleanField(default=False)
+
 class Vivienda(models.Model):
 	barrio = models.CharField(max_length=1000)
 	calle = models.CharField(max_length=1000)
@@ -83,7 +116,9 @@ class Vivienda(models.Model):
 	cantidadHabitaciones = models.IntegerField("Cantidad de habitaciones",null=True,blank=True)
 	urgenciasBasicas = models.CharField("Urgencias básicas", max_length=20000,null=True, blank=True)
 
-
+	entornoAmbiental = models.ForeignKey(EntornoAmbiental,related_name='entornoAmbiental',null=True,blank=True)
+	consumoAnimal = models.ForeignKey(ConsumoAnimal,related_name='consumoAnimal',null=True,blank=True)
+	consumoCultivos = models.ForeignKey(ConsumoCultivos,related_name='consumoCultivos',null=True,blank=True)
 	def __unicode__(self):
 		return self.calle
 
@@ -210,8 +245,6 @@ class Persona(models.Model):
 	estadoSalud = models.ForeignKey(EstadoSalud, related_name="estadoSalud",null=True, blank=True,verbose_name=u"estado de salud")
 	infoAdicional = models.CharField("Información  adicional", blank=True, null=True, max_length=2000)
 	
-
-
 	saludReproductiva = models.ForeignKey(SaludReproductiva, related_name="saludReproductiva", null=True, blank=True)
 
 	def save(self, *args, **kwargs):
@@ -248,24 +281,17 @@ class Respuesta(models.Model):
 	preguntaAsociada = models.ForeignKey(Pregunta,related_name="preguntaAsociada")
 
 
-# Create your models here.
-
-
-import django_filters
-
 class PersonaFilter(django_filters.FilterSet):
-    class Meta:
-        model = Persona
-        fields = ['apeNombre', 'discapacidad', 'nivelAprobado', 'motivosAbandono', 
-        		'oficio', 'condicionActividad', 'seccPadron', 'circuPadron', 'partidoPadron']
+	class Meta:
+		model = Persona
+		fields = ['apeNombre', 'discapacidad', 'nivelAprobado', 'motivosAbandono', 'oficio', 'condicionActividad', 'seccPadron', 'circuPadron', 'partidoPadron']
 
 class ViviendaFilter(django_filters.FilterSet):
-    class Meta:
-        model = Vivienda
-        fields = ['barrio', 'calle', 'tipoVivienda', 'tenencia', 'servicio', 'banio', 'departamento', 'municipio', 'localidad']
+	class Meta:
+		model = Vivienda
+		fields = ['barrio', 'calle', 'tipoVivienda', 'tenencia', 'servicio', 'banio', 'departamento', 'municipio', 'localidad']
 
 
-#############################
 """Clase que no se guarda, se usa solo para mostrar"""
 
 """
